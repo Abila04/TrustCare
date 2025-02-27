@@ -1,0 +1,53 @@
+{% extends 'user/user_index.html' %}
+
+{% block content %}
+<section class="booking_details_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>Booking Details</h2>
+        </div>
+        <div class="booking_details">
+            <p><strong>Service Name:</strong> {{ booking.service.name }}</p>
+            <p><strong>Date:</strong> {{ booking.appointment_date }}</p>
+            <p><strong>Time:</strong> {{ booking.appointment_time }}</p>
+            <p><strong>Description:</strong> {{ booking.message }}</p>  
+            <form method="POST" action="{% url 'user_cancel_booking' booking.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Cancel Booking</button>
+            </form>
+        </div>
+
+        <div class="volunteer_details">
+            <h3>Volunteer Details</h3>
+            <p><strong>Name:</strong> {{ booking.volunteer.name }}</p>
+            <p><strong>Email:</strong> {{ booking.volunteer.email }}</p>
+            <p><strong>Phone:</strong> {{ booking.volunteer.phone }}</p>
+            <p><strong>Work Experience:</strong> {{ booking.volunteer.work_experience }}</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .booking_details_section {
+        padding: 60px 20px;
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    .booking_details p,
+    .volunteer_details p {
+        margin-bottom: 10px;
+    }
+    .heading_container h2,
+    .volunteer_details h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}

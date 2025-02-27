@@ -1,0 +1,71 @@
+{% extends 'admin/admin_index.html' %}
+{% block content %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5">User Details</h1>
+        </div><br><br><br>
+        <div class="row g-4">
+            <div class="container-fluid py-5">
+                <div class="container">
+                    <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                        <h1 class="text-primary mb-5"><span class="fw-light text-dark"></span></h1>
+                    </div>
+                    <div class="row g-25">
+                        <div class="col-lg-30 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="wow fadeIn" data-wow-delay="0.3s">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <table class="table" border="1" style="color: black;">
+                                        <thead>
+                                            <tr>
+                                                <th>Sl. No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>DOB</th>
+                                                <th>Phone Number</th>
+                                                <th>Address</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for x in data %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td>{{ x.name }}</td>
+                                                <td>{{ x.email }}</td>
+                                                <td>{{ x.DOB }}</td>
+                                                <td>{{ x.Phone }}</td>
+                                                <td>{{ x.address }}</td>
+                                            </tr>
+                                            {% empty %}
+                                            <tr>
+                                                <td colspan="7" class="text-center">No user data found.</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            
+                padding: 9px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f1f1f1;
+                font-weight: bold;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+        </style>
+    </div>
+</div>
+{% endblock %}

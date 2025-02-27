@@ -1,0 +1,24 @@
+{% extends 'admin/admin_index.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Allocate Volunteer for {{ booking.service }}</h2>
+
+    <!-- Volunteer Allocation Form -->
+    <form method="post" action="{% url 'allocate_volunteer' booking.id %}">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="volunteers" class="form-label">Select Volunteer</label>
+            <select class="form-control" id="volunteer" name="volunteer_id" required>
+                {% for volunteer in volunteers %}
+                <option value="{{ volunteer.id }}">{{ volunteer.name }}</option>
+                {% empty %}
+                <option disabled>No approved volunteers available.</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Allocate Volunteer</button>
+    </form>
+    
+</div>
+{% endblock %}

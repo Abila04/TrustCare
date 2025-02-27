@@ -1,0 +1,147 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="{% url 'user_reg' %}">Register here</a>.</p>
+
+<!-- Simple CSS for the Login Form -->
+<style>
+  :root {
+    --white-color: #FFFFFF;
+    --primary-color: #4A90E2;  /* Light blue color */
+    --background-color: #F4F8FB;  /* Very light blue background */
+    --button-hover-color: #357ABD;  /* Darker blue for button hover */
+    --input-border-color: #D1E2F1;  /* Light blue input border */
+    --text-color: #333;  /* Dark gray text color */
+    --font-family: 'Arial', sans-serif;
+  }
+
+  body {
+    background-color: var(--background-color);
+    font-family: var(--font-family);
+    padding-top: 50px;
+    color: var(--text-color);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: var(--button-hover-color);
+  }
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  function validateForm() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm_password').value;
+      const phone = document.getElementById('phone').value;
+  
+      // Email format validation
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+          alert('Please enter a valid email address.');
+          return false;
+      }
+  
+      // Password match validation
+      if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return false;
+      }
+  
+      // Phone number format validation (10 digits)
+      const phonePattern = /^\d{10}$/;
+      if (!phonePattern.test(phone)) {
+          alert('Please enter a valid phone number 10 digits.');
+          return false;
+      }
+  
+      return true;
+  }
+  </script>
+
+{% endblock %}

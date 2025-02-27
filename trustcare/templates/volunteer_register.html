@@ -1,0 +1,248 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% if messages %}
+                    <ul class="list-unstyled" id="message-container" style="margin-top: 1rem;">
+                        {% for message in messages %}
+                            <li class="alert alert-info" style="font-size: 14px; margin-bottom: 10px;">
+                                {{ message }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+           {%endif%}
+<h2 class="form-title">Volunteer Registration</h2>
+<form method="post" enctype="multipart/form-data" class="registration-form" onsubmit="return validateForm()">
+    {% csrf_token %}
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" >
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" >
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" >
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" >
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="qualification">Qualification:</label>
+            <input type="text" id="qualification" name="qualification" placeholder="Enter your qualification" >
+        </div>
+        <div class="form-group">
+            <label for="service_type">Service Type:</label>
+            <input type="text" id="service_type" name="service_type" placeholder="Enter your service type" >
+        </div>
+        
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" placeholder="Enter your place" >
+        </div>
+        <div class="form-group">
+            <label for="aadhaar_number">Aadhaar Number:</label>
+            <input type="text" id="aadhaar_number" name="aadhaar_number" placeholder="Enter your Aadhaar number" >
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" >
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="aadhaar_pic">Aadhaar Picture:</label>
+            <input type="file" id="aadhaar_pic" name="aadhaar_pic" >
+        </div>
+        <div class="form-group">
+            <label for="profile_pic">Profile Picture:</label>
+            <input type="file" id="profile_pic" name="profile_pic" >
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">  
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter your phone number" >
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address" >
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="first_preference">Preferred Language </label>
+            <select id="first_preference" name="first_preference" required>
+                <option value="" disabled selected>Choose your first preference</option>
+                <option value="Kannada">Kannada</option>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="second_preference">Preferred Language </label>
+            <select id="second_preference" name="second_preference" required>
+                <option value="" disabled selected>Choose your second preference</option>
+                <option value="Kannada">Kannada</option>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn-submit">Register</button>
+</form>
+
+
+<p class="form-footer">
+    Already have an account? <a href="{% url 'login' %}">Log in here</a>.
+</p>
+
+<style>
+  body {
+    background-color: #F4F8FB;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+
+  .form-title {
+    text-align: center;
+    color: #4A90E2;
+ font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .registration-form {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+  }
+
+  .form-row {
+    margin-bottom: 20px;
+  }
+
+  .form-row.two-fields {
+    display: flex;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  input, select {
+    padding: 12px;
+    border: 1px solid #D1E2F1;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  input:focus, select:focus {
+    border-color: #4A90E2;
+    outline: none;
+  }
+
+  .btn-submit {
+    background-color: #4A90E2;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background-color: #357ABD;
+  }
+
+  .form-footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .form-footer a {
+    color: #4A90E2;
+    text-decoration: none;
+  }
+
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+    {% comment %} <script>
+        // Auto-dismiss messages after 5 seconds
+        setTimeout(function() {
+            const messageContainer = document.getElementById('message-container');
+            if (messageContainer) {
+                messageContainer.style.transition = 'opacity 0.5s ease-out';
+                messageContainer.style.opacity = '0';
+                setTimeout(() => {
+                    messageContainer.remove();
+                }, 500); // Ensure it's removed from the DOM after fade-out
+            }
+        }, 5000); // Adjust the time as needed (currently set to 5 seconds)
+    </script>
+ {% endcomment %}
+
+  
+
+{% endblock %}

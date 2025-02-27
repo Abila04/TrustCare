@@ -1,0 +1,40 @@
+{% extends 'admin/admin_index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Appointments Booked</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Phone</th>
+                
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Message</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ appointment.name }}</td>
+                <td>{{ appointment.email }}</td>
+                <td>{{ appointment.phone }}</td>
+                
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.message }}</td>
+                
+            </tr>
+            {% empty %}
+            
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

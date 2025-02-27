@@ -1,0 +1,176 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">About Us</h2>
+    <p class="text-center text-muted">Empowering and supporting the elderly with compassionate care and services.</p>
+
+    <div class="row mt-4 align-items-center">
+        <!-- Left Column -->
+        <div class="col-md-6">
+            <h3>Our Mission</h3>
+            <p>
+                At <strong>The Trusted Companion</strong>, our mission is to enhance the quality of life for the elderly by providing essential services and companionship. We aim to foster a supportive community where the elderly can thrive with dignity, independence, and respect.
+            </p>
+        </div>
+
+        <!-- Right Column with Image -->
+        <div class="col-md-6 text-center">
+            <img src="https://www.elderaid.in/resources/images/common/banner-bg.png" alt="Elderly Care Banner" class="img-fluid rounded" style="max-width: 85%; height: auto;">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3>What We Offer</h3>
+            <p>
+                We provide a wide range of services tailored to the needs of the elderly, including:
+            </p>
+            <ul>
+                <li>Companionship and emotional support</li>
+                <li>Healthcare services coordination</li>
+                <li>Assistance with daily activities</li>
+                <li>Volunteer matching for personalized care</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3>Our Team</h3>
+            <p>
+                Our team comprises dedicated professionals, compassionate volunteers, and experienced healthcare providers. We work collaboratively to ensure the highest level of care and support for our elderly clients.
+            </p>
+        </div>
+    </div>
+</div>
+<br>
+
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; 
+    color: #333; 
+    margin: 10;
+    padding: 10;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Header */
+h2 {
+    font-size: 2.5rem;
+    color: rgb(0, 102, 145);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: #6c757d;
+    font-size: 1.2rem;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.col-md-6 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: rgb(0, 102, 145);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Lists */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<footer class="site-footer section-padding" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 me-auto col-12">
+                <h5 class="mb-lg-4 mb-3">Opening Hours</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex">
+                        Monday to Friday
+                        <span>8:00 AM - 3:30 PM</span>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        Saturday
+                        <span>10:30 AM - 5:30 PM</span>
+                    </li>
+                    <li class="list-group-item d-flex">
+                        Sunday : Closed
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-12 my-4 my-lg-0">
+                <h5 class="mb-lg-4 mb-3">Hotline 24/7</h5>
+                <p><a href="mailto:trustcare@gmail.com">trustcare@gmail.com</a></p>
+                <p><a href="+91 9567747058">+91 9567747058 </a></p>
+                <p>123 Digital Art Street, San Diego, CA 92123</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-12 ms-auto">
+                <h5 class="mb-lg-4 mb-2">Socials</h5>
+                <ul class="social-icon">
+                    <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+                    <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+                    <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                    <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                </ul>
+                <div>
+                    <p class="copyright-text">Copyright © Medic Care 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

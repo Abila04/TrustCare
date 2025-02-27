@@ -1,0 +1,110 @@
+{% extends 'admin/admin_index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Service</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Container for the form */
+        .form-container {
+            max-width: 600px;
+            margin: 25px auto;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 45px; /* Added margin to move it down */
+            margin-bottom: 30px;
+        }
+    
+        /* Label styles */
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+    
+        /* Input and textarea styles */
+        input[type="text"], textarea, select, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    
+        /* Button style */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 600px) {
+            .form-container {
+                width: 90%;
+                padding: 15px;
+            }
+    
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add Service</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <label for="service_name">Service Name:</label>
+            <input type="text" id="service_name" name="service_name" required><br><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="5" cols="40" required></textarea><br><br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+            </select><br><br>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+
+            <button type="submit">Add Service</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'user_index.html' %}
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center">Appointment Successfully Booked!</h2>
+    <p>Your appointment has been successfully booked. A confirmation will be sent to you soon.</p>
+    <a href="{% url 'book_appointment.html' %}" class="btn btn-secondary">Book another appointment</a>
+  </div>
+{% endblock %}
