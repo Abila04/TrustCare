@@ -71,19 +71,19 @@ def login(request):
 
         # Check volunteer login
         elif volunteer_var:
-            if volunteer_var.status == 'approved':  
+            # if volunteer_var.status == 'approved':  
                 request.session['id'] = volunteer_var.id
                 return render(request, 'volunteer/vol_index.html')
-            elif volunteer_var.status == 'pending':  
-                return HttpResponse(
-                    "<script>alert('Your registration is still pending approval.');window.location='/';</script>"
-                )
+            # elif volunteer_var.status == 'pending':  
+            #     return HttpResponse(
+            #         "<script>alert('Your registration is still pending approval.');window.location='/';</script>"
+            #     )
 
-        # Invalid credentials
-        else:
-            return HttpResponse(
-                "<script>alert('Invalid email or password! Please try again.');window.location='/login/';</script>"
-            )
+    #     # Invalid credentials
+    #     else:
+    #         return HttpResponse(
+    #             "<script>alert('Invalid email or password! Please try again.');window.location='/login/';</script>"
+    #         )
 
     return render(request,'login.html')
 

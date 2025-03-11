@@ -10,15 +10,15 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
-            margin: 0;
-            padding: 0;
+            margin: 10px;
+            padding: 10px;
         }
     
         /* Container for the form */
         .form-container {
             max-width: 600px;
             margin: 25px auto;
-            padding: 25px;
+            padding: 20px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -27,25 +27,28 @@
         h1 {
             text-align: center;
             color: #4CAF50;
-            margin-top: 45px; /* Added margin to move it down */
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced margin */
         }
     
         /* Label styles */
         label {
-            font-size: 16px;
-            margin-bottom: 8px;
+            font-size: 15px;
+            margin-bottom: 5px; /* Reduced gap */
             display: block;
         }
     
         /* Input and textarea styles */
-        input[type="text"], textarea, select, input[type="file"] {
+        input[type="text"], 
+        textarea, 
+        select, 
+        input[type="file"] {
             width: 100%;
-            padding: 10px;
-            margin: 8px 0 20px 0;
+            padding: 8px; /* Reduced padding */
+            margin-bottom: 10px; /* Reduced gap */
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+            font-size: 14px; /* Adjusted font size */
         }
     
         /* Button style */
@@ -53,11 +56,8 @@
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 15px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
+            padding: 12px 15px; /* Adjusted padding */
+            font-size: 15px;
             cursor: pointer;
             border-radius: 4px;
             width: 100%;
@@ -79,7 +79,6 @@
             }
         }
     </style>
-    
 </head>
 <body>
     <div class="form-container">
@@ -88,19 +87,19 @@
             {% csrf_token %}
             
             <label for="service_name">Service Name:</label>
-            <input type="text" id="service_name" name="service_name" required><br><br>
+            <input type="text" id="service_name" name="service_name" required>
 
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="description" rows="5" cols="40" required></textarea><br><br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
 
             <label for="status">Status:</label>
             <select id="status" name="status">
                 <option value="Available">Available</option>
                 <option value="Unavailable">Unavailable</option>
-            </select><br><br>
+            </select>
 
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+            <input type="file" id="image" name="image" accept="image/*" required>
 
             <button type="submit">Add Service</button>
         </form>
